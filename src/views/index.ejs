@@ -1,0 +1,108 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+    body{
+        overflow-x: hidden;
+        font-family: Quicksand, 'sans-serif';
+    }
+    h1, h2, h3{
+    font-family: 'Livvic', sans-serif;
+    text-transform: capitalize;
+    }
+    .sidebar{
+        background: url('../../public/sidebar1.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: right; 
+        background-size: cover;
+    }
+    .background{
+        background: url('../../public/19790.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    a{
+        margin-top: 15px;
+    }
+    .btn{
+        background-color: #16c892;
+        text-transform: capitalize;
+        font-size: 18px;
+        padding: 17px;
+    }
+    .btn:hover{
+        background-color: #2ecc72;
+    }
+    @media(max-width:768px){
+    .sidebar{
+        background: url('../../public/sidebar1.jpg');
+        height: 300px;
+        background-attachment: fixed;
+        background-position: center; 
+        background-size: cover;
+    }
+    .btn{
+        background-color: #16c892;
+        text-transform: capitalize;
+        font-size: 12px;
+        padding: 9px;
+    }
+  }
+</style>
+<body>
+ <div class="row">
+  <div class="col-md-2 sidebar overflow-auto">
+    <div class="nav flex-column nav-pills m-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active btn btn-lg btn-block btn-success text-white" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> Section 1 <i class="fas fa-chevron-circle-right"></i></a>
+      <hr class="my-1">
+      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Section 2 <i class="fas fa-chevron-circle-right"></i></a>
+      <hr class="my-1">
+      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Section 3 <i class="fas fa-chevron-circle-right"></i></a>
+      <hr class="my-1">
+      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Section 4 <i class="fas fa-chevron-circle-right"></i></a>
+    </div>
+  </div>
+  <div class="col-md-10 background">
+    <div class="tab-content p-5" id="v-pills-tabContent">
+      <div class="tab-pane animated pulse show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <h1 class="text-center">Section 1</h1>
+          <p class="text-primary font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="tab-pane animated pulse" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+       <h1 class="text-center">Section 2</h1>
+         <p class="text-primary font-weight-bold">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ea porro facere consequuntur provident commodi dolore impedit deserunt, aperiam ipsam numquam optio perspiciatis exercitationem, autem dolorem id saepe ab illum.
+         </p>
+         
+        <div class="row d-flex justify-content-center">
+                <video width="900" height="500" controls>
+                        <source src="../../public/video.mp4" type="video/mp4">
+                </video>
+        </div>
+      </div>
+      <div class="tab-pane animated pulse" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <h1 class="text-center">
+              Section-3
+          </h1>
+          <p class="text-primary font-weight-bold">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ea porro facere consequuntur provident commodi dolore impedit deserunt, aperiam ipsam numquam optio perspiciatis exercitationem, autem dolorem id saepe ab illum.
+          </p>
+          <div class="row d-flex justify-content-center">
+                  <video width="900" height="500" controls>
+                          <source src="../../public/video.mp4" type="video/mp4">
+                  </video>
+          </div>
+      </div>
+      <div class="tab-pane animated pulse" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+          <h1 class="text-center">Section-4</h1>
+          <p class="text-primary font-weight-bold">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ea porro facere consequuntur provident commodi dolore impedit deserunt, aperiam ipsam numquam optio perspiciatis exercitationem, autem dolorem id saepe ab illum.
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>
