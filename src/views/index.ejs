@@ -15,6 +15,15 @@
         background-attachment: fixed;
         background-position: right; 
         background-size: cover;
+        position: absolute;
+        z-index: 1;
+        left: -100%;
+        width: 100%;
+        transition: 1s;
+
+    }
+    .show{
+        left: 0;
     }
     .background{
         background: url('../../public/19790.jpg');
@@ -37,13 +46,20 @@
     .btn:hover{
         background-color: #2ecc72;
     }
+    .fa-times-circle:hover{
+        font-size: 35px;
+        transition: 0.15s;
+        color:black;
+    }
+    .fa-bars:hover{
+        font-size: 35px;
+        transition: 0.15s;
+        color:black;
+    }
     @media(max-width:768px){
-    .sidebar{
-        background: url('../../public/sidebar1.jpg');
-        height: 300px;
-        background-attachment: fixed;
-        background-position: center; 
-        background-size: cover;
+    *{
+        overflow: hidden;
+        font-family: Quicksand, 'sans-serif';
     }
     .btn{
         background-color: #16c892;
@@ -51,22 +67,38 @@
         font-size: 12px;
         padding: 9px;
     }
+    #Video{
+        height: 450px;
+        width: 350px;
+    }
+    .background{
+        background: url('../../public/19790.jpg');
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
   }
 </style>
 <body>
- <div class="row">
-  <div class="col-md-2 sidebar overflow-auto">
+    
+
+ <div class="row d-flex justify-content-start box">
+    <div class="col-md-3 sidebar overflow-auto">
+    <div class="hide-login-btn d-flex justify-content-end mt-4" ><i class="fas fa-times-circle fa-2x"></i></div>
     <div class="nav flex-column nav-pills m-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active btn btn-lg btn-block btn-success text-white" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> Section 1 <i class="fas fa-chevron-circle-right"></i></a>
-      <hr class="my-1">
-      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Section 2 <i class="fas fa-chevron-circle-right"></i></a>
-      <hr class="my-1">
-      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Section 3 <i class="fas fa-chevron-circle-right"></i></a>
-      <hr class="my-1">
-      <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Section 4 <i class="fas fa-chevron-circle-right"></i></a>
-    </div>
-  </div>
-  <div class="col-md-10 background">
+       <a class="nav-link active btn btn-lg btn-block btn-success text-white" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> Section 1 <i class="fas fa-chevron-circle-right"></i></a>
+       <hr class="my-1">
+       <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Section 2 <i class="fas fa-chevron-circle-right"></i></a>
+       <hr class="my-1">
+       <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Section 3 <i class="fas fa-chevron-circle-right"></i></a>
+       <hr class="my-1">
+       <a class="nav-link btn btn-lg btn-block btn-success text-white" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Section 4 <i class="fas fa-chevron-circle-right"></i></a>
+     </div>
+   </div>
+   <div class="col-md-12 background">
+        <div class="show-login-btn" style="position: absolute; padding: 15px; color: #2ecc72;"><i class="fas fa-bars fa-2x "></i></div>
     <div class="tab-content p-5" id="v-pills-tabContent">
       <div class="tab-pane animated pulse show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <h1 class="text-center">Section 1</h1>
@@ -77,9 +109,8 @@
          <p class="text-primary font-weight-bold">
              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ea porro facere consequuntur provident commodi dolore impedit deserunt, aperiam ipsam numquam optio perspiciatis exercitationem, autem dolorem id saepe ab illum.
          </p>
-         
         <div class="row d-flex justify-content-center">
-                <video width="900" height="500" controls>
+                <video id="Video" controls>
                         <source src="../../public/video.mp4" type="video/mp4">
                 </video>
         </div>
@@ -92,7 +123,7 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ea porro facere consequuntur provident commodi dolore impedit deserunt, aperiam ipsam numquam optio perspiciatis exercitationem, autem dolorem id saepe ab illum.
           </p>
           <div class="row d-flex justify-content-center">
-                  <video width="900" height="500" controls>
+                  <video id="Video" controls>
                           <source src="../../public/video.mp4" type="video/mp4">
                   </video>
           </div>
@@ -106,4 +137,18 @@
     </div>
   </div>
 </div>
+<script>
+    $(document).ready(function(){
+    $(".hide-login-btn").click(function(){
+        $(".sidebar").toggleClass("show");
+        $(".background").css('box-shadow', '');
+    });
+        
+    $(".show-login-btn").click(function(){
+        $(".sidebar").toggleClass("show");
+        $(".background").css('box-shadow', 'inset -2500px 0 2500px rgba(0,0,0,0.8)');
+    });
+});
+    
+</script>
 <%- include("partials/footer.ejs") %>
